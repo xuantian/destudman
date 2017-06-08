@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1496922684 source:c:\users\lenovo\desktop\codes\destudman\main.cpp
+	<iostream>
+	<windows.h>
+	<string>
+
