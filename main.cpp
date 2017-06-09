@@ -1,6 +1,7 @@
+
 #include <iostream>
-#include <windows.h>
 #include <string>
+#include <windows.h>
 using namespace std;
 struct stu
 {
@@ -10,12 +11,12 @@ struct stu
     double sums;//总成绩
     double avers;//aver成绩
 };
-int search(stu s[],int n ,int x);//根据学生学号查找学生的信息，若找到则返回该学生的下标，否则返回-1。
+int search(struct stu s[],int n ,int x);//根据学生学号查找学生的信息，若找到则返回该学生的下标，否则返回-1。
 void cal(struct stu s[]);//计算各个学生的总成绩和平均成绩
 void aver(struct stu s[],int n);//计算各科的平均成绩。
 void sort(struct stu s[],int n);//按学生的平均成绩降序排序。
-void max(stu s[],int n);//找出考得最好（平均成绩最高）的学生信息。
-void output(stu s[],int n);//输出学生的信息。
+void max(struct stu s[],int n);//找出考得最好（平均成绩最高）的学生信息。
+void output(struct stu s[],int n);//输出学生的信息。
 void showMenu();//显示菜单。
 int main(int argc, char* argv[])
 {
@@ -57,7 +58,7 @@ int main(int argc, char* argv[])
     }
 
 }
-void max(stu s[],int n)
+void max(struct stu s[],int n)
 {
     int i,k;
     for(i=0; i<n-1; i++)
@@ -88,7 +89,7 @@ void cal(struct stu s[])
         s[i].avers=s[i].sums/3;
     }
 }
-int search(stu s[],int n ,int x)
+int search(struct stu s[],int n ,int x)
 {
     int i;
     for(i=0; i<n; i++)
@@ -132,7 +133,8 @@ void sort(struct stu s[],int n)
 }
 void showMenu()
 {
-    for(int j = 0; j < 40; ++j)
+	int j;
+    for(j = 0; j < 40; ++j)
         cout << "*";
     cout << endl;
     cout <<"请输入1~6内的数字"<<endl;
@@ -142,11 +144,11 @@ void showMenu()
     cout << "4.考得最好的学生信息" << endl;
     cout << "5.按学生的平均成绩降序排序" << endl;
     cout << "6.结束" << endl;
-    for(int j = 0; j < 40; ++j)
+    for( j = 0; j < 40; ++j)
         cout << "*";
     cout << endl;
 }
-void output(stu s[],int n)
+void output(struct stu s[],int n)
 {
     int i;
     cout <<"学号\t" <<"姓名\t" << "语文\t\t"<<"数学\t"<<"英语\t" <<"总成绩\t" <<"平均成绩\t" << endl;
@@ -171,3 +173,4 @@ void aver(struct stu s[],int n)
     cout << as[0]<<"\t\t"<<as[1]<<"\t\t"<<as[2]<<"\t\t" << endl;
 
 }
+
